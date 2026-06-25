@@ -196,3 +196,15 @@
   pointer-events: none;
   mix-blend-mode: screen;
 }
+
+@media (max-width: 480px) {
+  .phoneContainer {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 380px) {
+  .phoneContainer {
+    transform: scale(0.75);
+  }
+}

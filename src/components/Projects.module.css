@@ -169,6 +169,7 @@
     padding: 32px;
     height: auto;
     min-height: 350px;
+    width: 85vw;
   }
   .cardInner {
     flex-direction: column;
@@ -184,6 +185,22 @@
     width: 60px;
     height: 60px;
     align-self: flex-end;
+  }
+
+  .modalOverlay {
+    padding: 10px;
+  }
+  .modalContent {
+    height: 100%;
+    border-radius: 16px;
+  }
+  .imageGallery {
+    padding-top: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .projectVideo {
+    max-height: 40vh;
   }
 }
 

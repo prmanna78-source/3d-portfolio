@@ -170,10 +170,10 @@
 
 @media (max-width: 768px) {
   .scrollTrack {
-    height: 450vh; /* slightly longer for mobile since cards are stacked differently? No, same cards, maybe need more track length */
+    height: 450vh; 
   }
   .cardContainer {
-    width: 350px;
+    width: 85vw;
   }
   .card {
     padding: 32px;

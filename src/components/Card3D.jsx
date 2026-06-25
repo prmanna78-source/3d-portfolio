@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
-const Card3D = ({ children, className, style }) => {
+const Card3D = ({ children, className, style, onClick, ...props }) => {
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -35,7 +35,9 @@ const Card3D = ({ children, className, style }) => {
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
       className={className}
+      {...props}
       style={{
         ...style,
         rotateX,

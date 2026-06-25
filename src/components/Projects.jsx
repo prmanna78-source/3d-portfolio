@@ -55,7 +55,11 @@ const ProjectCard = ({ proj, i, progress, range, targetScale, onOpenModal }) => 
         className={styles.projectCard}
         style={{
           scale,
-          top: `calc(10vh + ${i * 40}px)`
+          top: `calc(10vh + ${i * 40}px)`,
+          cursor: (proj.images || proj.video) ? 'pointer' : 'default'
+        }}
+        onClick={() => {
+          if (proj.images || proj.video) onOpenModal(proj);
         }}
       >
         <div className={styles.cardInner}>
@@ -70,7 +74,8 @@ const ProjectCard = ({ proj, i, progress, range, targetScale, onOpenModal }) => 
           </div>
           <button
             className={styles.viewBtn}
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               if (proj.images || proj.video) onOpenModal(proj);
             }}
           >
@@ -144,6 +149,8 @@ const Projects = () => {
                     controls
                     autoPlay
                     loop
+                    muted
+                    playsInline
                     className={styles.projectVideo}
                     src={activeProject.video}
                   />
