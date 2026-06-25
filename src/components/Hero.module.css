@@ -1,0 +1,102 @@
+.heroSection {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 140px; /* Increased to ensure gap below navbar */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerContent {
+  z-index: 10;
+  width: 100%;
+}
+
+.liveAura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 1000px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.auraCore {
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.03) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(229,255,0,0.04) 0%, transparent 50%);
+  filter: blur(50px);
+  border-radius: 50%;
+  animation: rotateAura 20s linear infinite alternate;
+}
+
+@keyframes rotateAura {
+  0% { transform: rotate(0deg) scale(0.9); opacity: 0.7; }
+  50% { transform: rotate(180deg) scale(1.1); opacity: 1; }
+  100% { transform: rotate(360deg) scale(0.9); opacity: 0.7; }
+}
+
+.marqueeBackground {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100vw;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollMarquee 40s linear infinite;
+  font-family: 'VT323', monospace;
+  font-size: 15rem;
+  line-height: 1;
+  color: #1a1a1a; /* Dark pixelated look matching the image */
+  letter-spacing: -0.02em;
+  will-change: transform;
+}
+
+.marqueeTrack span {
+  padding-right: 2rem;
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .marqueeTrack {
+    font-size: 10rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .marqueeTrack {
+    font-size: 6rem;
+  }
+}

@@ -1,0 +1,130 @@
+.toolsSection {
+  width: 100%;
+  padding: 120px 0;
+  background-color: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.header h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.header p {
+  color: #a1a1aa;
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.toolsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* The Pill Container */
+.toolPill {
+  width: 180px;
+  height: 280px;
+  border-radius: 90px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* Liquid Glass Effect */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(24px) saturate(200%) contrast(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(200%) contrast(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.toolPill::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-20deg);
+  animation: glassShine 8s infinite;
+  pointer-events: none;
+}
+
+@keyframes glassShine {
+  0% { left: -100%; }
+  20% { left: 200%; }
+  100% { left: 200%; }
+}
+
+.toolPill:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 30px 50px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(229, 255, 0, 0.1),
+    inset 0 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Top half of the pill (Icon area) */
+.pillTop {
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(21, 21, 21, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Bottom half of the pill (Text area) */
+.pillBottom {
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.pillBottom h3 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.pillBottom p {
+  color: #888888;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .toolPill {
+    width: 150px;
+    height: 240px;
+  }
+  .pillBottom h3 {
+    font-size: 1.1rem;
+  }
+  .header h2 {
+    font-size: 2.5rem;
+  }
+}
