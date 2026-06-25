@@ -54,7 +54,6 @@
   flex: 1;
   background: rgba(20, 20, 20, 0.4);
   backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
   padding: 48px;
   border-radius: 32px;
   border: 1px solid rgba(255, 255, 255, 0.05);
