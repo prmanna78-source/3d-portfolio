@@ -1,37 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import AnimatedLogo from './AnimatedLogo';
 import styles from './Preloader.module.css';
 
 const Preloader = ({ onComplete }) => {
-  const [progress, setProgress] = useState(0);
+  const videoRef = useRef(null);
 
   useEffect(() => {
-    const duration = 2000; // 2 seconds fast load
-    const startTime = Date.now();
-    let animationFrameId;
+    // Exactly 8 seconds timer to slide up the preloader
+    const duration = 8000; 
+    const timer = setTimeout(() => {
+      if (onComplete) onComplete();
+    }, duration);
 
-    const animateProgress = () => {
-      const elapsed = Date.now() - startTime;
-      const t = Math.min(elapsed / duration, 1);
-      
-      // Easing function (easeOutQuart)
-      const easedProgress = 1 - Math.pow(1 - t, 4);
-      const nextProgress = Math.min(Math.floor(easedProgress * 100), 100);
-      
-      setProgress(nextProgress);
-
-      if (t < 1) {
-        animationFrameId = requestAnimationFrame(animateProgress);
-      } else {
-        if (onComplete) onComplete();
-      }
-    };
-
-    animationFrameId = requestAnimationFrame(animateProgress);
-
-    return () => cancelAnimationFrame(animationFrameId);
+    return () => clearTimeout(timer);
   }, [onComplete]);
+
+  useEffect(() => {
+    // Attempt to force play, which will log a warning if the browser blocks it due to audio
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.warn("Browser blocked autoplay with audio. User interaction required.", error);
+      });
+    }
+  }, []);
 
   return (
     <motion.div
@@ -44,12 +35,19 @@ const Preloader = ({ onComplete }) => {
     >
       <div className={styles.content}>
         <motion.div 
-          className={styles.logo}
-          initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          className={styles.videoWrapper}
+          initial={{ opacity: 0, filter: "blur(10px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <AnimatedLogo width="240px" height="240px" progress={progress} />
+          <video 
+            ref={videoRef}
+            className={styles.video}
+            src="/loading.mp4" 
+            autoPlay 
+            muted
+            playsInline
+          />
         </motion.div>
       </div>
     </motion.div>

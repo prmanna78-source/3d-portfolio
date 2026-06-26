@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaPython, FaHtml5, FaCss3Alt } from 'react-icons/fa';
-import { SiCplusplus, SiOllama, SiFigma, SiDrone } from 'react-icons/si';
+import { SiCplusplus, SiOllama, SiFigma, SiDrone, SiOpencv, SiYolo, SiEdgeimpulse } from 'react-icons/si';
 import { VscAzure } from 'react-icons/vsc';
+import { MatlabIcon, GazeboIcon } from './BrandIcons';
 import Card3D from './Card3D';
 import styles from './Tools.module.css';
 
@@ -41,6 +42,31 @@ const toolsList = [
     name: "Ardupilot",
     category: "Autonomous Systems",
     icon: <SiDrone color="#52b7ff" size={40} />
+  },
+  {
+    name: "OpenCV",
+    category: "Computer Vision",
+    icon: <SiOpencv color="#5C3EE8" size={40} />
+  },
+  {
+    name: "YOLO",
+    category: "Object Detection",
+    icon: <SiYolo color="#00FFFF" size={40} />
+  },
+  {
+    name: "Edge Impulse",
+    category: "Edge AI",
+    icon: <SiEdgeimpulse color="#FFFFFF" size={40} />
+  },
+  {
+    name: "Gazebo",
+    category: "Simulation",
+    icon: <GazeboIcon color="#F15A24" size={40} />
+  },
+  {
+    name: "MATLAB",
+    category: "Data Analysis & Sim",
+    icon: <MatlabIcon size={40} />
   }
 ];
 

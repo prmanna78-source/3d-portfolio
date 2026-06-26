@@ -1,49 +1,115 @@
 .tickerSection {
   width: 100%;
-  padding: 60px 0;
-  background-color: var(--surface-color);
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  padding: 100px 0;
+  background-color: transparent;
   overflow: hidden;
+  position: relative;
+}
+
+.tickerSection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .tickerHeader {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2;
 }
 
-.tickerHeader p {
+.gradientText {
+  font-family: 'Sreda', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--accent-color);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
   color: var(--text-secondary);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0.8;
 }
 
 .tickerContainer {
   width: 100%;
   display: flex;
+  flex-direction: column;
+  gap: 24px;
   position: relative;
-  /* Gradient fades on left and right edges */
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.trackWrapper {
+  width: 100%;
+  overflow: hidden;
 }
 
 .tickerTrack {
   display: flex;
-  gap: 60px;
+  gap: 24px;
   white-space: nowrap;
-  padding-right: 60px;
+  padding: 10px 0;
+  width: max-content;
 }
 
-.tickerItem {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  opacity: 0.5;
-  transition: opacity 0.3s;
+.tickerCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 36px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
-.tickerItem:hover {
-  opacity: 1;
-  color: var(--accent-color);
+.tickerCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(167, 139, 250, 0.4);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 30px -10px rgba(167, 139, 250, 0.3);
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.1));
+}
+
+.techName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f1f1f1;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .gradientText {
+    font-size: 1.8rem;
+  }
+  .tickerCard {
+    padding: 14px 24px;
+  }
+  .techName {
+    font-size: 1rem;
+  }
+  .iconContainer {
+    font-size: 1.8rem;
+  }
 }
