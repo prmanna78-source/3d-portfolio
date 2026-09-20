@@ -29,6 +29,7 @@
   gap: 40px;
   max-width: 1120px;
   margin: 0 auto;
+  width: 100%;
 }
 
 /* Dark Premium Liquid Glass Design */
@@ -51,13 +52,14 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-top: 1px solid rgba(255, 255, 255, 0.24);
   border-left: 1px solid rgba(255, 255, 255, 0.18);
-  border-right: 3px solid var(--accent-color); /* Neon right edge signature */
+  border-right: 3px solid var(--accent-color); /* Signature Neon right edge */
   box-shadow: 
     0 40px 80px rgba(0, 0, 0, 0.9),
     0 0 35px rgba(229, 255, 0, 0.08),
     inset 0 1px 2px rgba(255, 255, 255, 0.18),
     inset 0 -1px 2px rgba(0, 0, 0, 0.6);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  touch-action: pan-y;
 }
 
 .publicationCard:hover {
@@ -184,6 +186,7 @@
   color: #94a3b8;
   font-size: 0.88rem;
   font-family: monospace;
+  word-break: break-word;
 }
 
 .abstract {
@@ -265,6 +268,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  width: 100%;
 }
 
 .certPreviewCard {
@@ -339,14 +343,16 @@
   align-items: center;
   gap: 7px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  text-align: center;
 }
 
 /* Modal Lightbox - Full View, Zero Cropping */
 .modalOverlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.92);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 10000;
   display: flex;
   align-items: center;
@@ -381,6 +387,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .modalTitleGroup h3 {
@@ -410,6 +417,7 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.25s ease;
+  flex-shrink: 0;
 }
 
 .closeBtn:hover {
@@ -486,40 +494,229 @@
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-@media (max-width: 900px) {
+/* ==============================================
+   RESPONSIVE OPTIMIZATIONS FOR MOBILE & TABLETS
+   ============================================== */
+
+/* Tablet Screens (<= 992px) */
+@media (max-width: 992px) {
+  .researchSection {
+    padding: 80px 0;
+  }
   .gridContent {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 36px;
   }
   .publicationCard {
-    padding: 32px;
+    padding: 36px;
   }
   .paperTitle {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
-  .modalFooter {
-    flex-direction: column;
-    align-items: stretch;
+  .previewColumn {
+    order: 2;
   }
-  .footerActions {
-    justify-content: flex-end;
+  .infoColumn {
+    order: 1;
   }
 }
 
-@media (max-width: 600px) {
+/* Mobile Screens (<= 768px) */
+@media (max-width: 768px) {
+  .researchSection {
+    padding: 60px 0;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
   .header h2 {
     font-size: 2.2rem;
   }
-  .publicationCard {
-    padding: 24px;
-    border-radius: 22px;
+
+  .header p {
+    font-size: 0.98rem;
+    padding: 0 8px;
   }
+
+  .publicationCard {
+    padding: 26px 20px;
+    border-radius: 22px;
+    border-right-width: 2.5px;
+  }
+
+  .paperTitle {
+    font-size: 1.35rem;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .badgesRow {
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .statusBadge,
+  .venueBadge {
+    font-size: 0.76rem;
+    padding: 5px 11px;
+  }
+
+  .metaInfo {
+    font-size: 0.88rem;
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+
+  .abstract {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  .tags {
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+
+  .tag {
+    font-size: 0.76rem;
+    padding: 5px 11px;
+  }
+
   .actions {
     flex-direction: column;
-    align-items: stretch;
+    width: 100%;
+    gap: 10px;
   }
+
   .primaryLinkBtn,
   .certificateTriggerBtn {
+    width: 100%;
     justify-content: center;
+    padding: 13px 18px;
+    font-size: 0.92rem;
+  }
+
+  .certPreviewCard {
+    max-width: 100%;
+    padding: 6px;
+    border-radius: 16px;
+  }
+
+  .certThumbnail {
+    max-height: 230px;
+    border-radius: 10px;
+  }
+
+  .overlayHint {
+    padding-bottom: 14px;
+  }
+
+  .hintBadge {
+    padding: 5px 14px;
+    font-size: 0.76rem;
+  }
+
+  /* Modal Lightbox on Mobile */
+  .modalOverlay {
+    padding: 10px;
+  }
+
+  .modalContent {
+    max-height: 94vh;
+    border-radius: 18px;
+    width: 100%;
+  }
+
+  .modalHeader {
+    padding: 14px 16px;
+  }
+
+  .modalTitleGroup {
+    gap: 8px;
+  }
+
+  .modalTitleGroup h3 {
+    font-size: 1rem;
+  }
+
+  .modalTitleGroup span {
+    font-size: 0.74rem;
+    padding: 2px 8px;
+  }
+
+  .closeBtn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .modalBody {
+    padding: 12px 6px;
+  }
+
+  .certImageWrapper {
+    padding: 2px;
+    border-radius: 8px;
+  }
+
+  .fullCertImage {
+    max-height: calc(82vh - 130px);
+  }
+
+  .modalFooter {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .footerActions {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footerActions a,
+  .footerActions button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Small Smartphone Screens (<= 480px) */
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 1.85rem;
+  }
+
+  .publicationCard {
+    padding: 22px 16px;
+    border-radius: 18px;
+  }
+
+  .paperTitle {
+    font-size: 1.22rem;
+  }
+
+  .badgesRow {
+    gap: 6px;
+  }
+
+  .statusBadge,
+  .venueBadge {
+    font-size: 0.72rem;
+    padding: 4px 9px;
+  }
+
+  .certThumbnail {
+    max-height: 190px;
+  }
+
+  .hintBadge {
+    font-size: 0.72rem;
+    padding: 4px 12px;
   }
 }
