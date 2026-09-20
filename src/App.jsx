@@ -8,6 +8,7 @@ import Stats from './components/Stats';
 import Experience from './components/Experience';
 import WorkProcess from './components/WorkProcess';
 import Projects from './components/Projects';
+import Research from './components/Research';
 import Tools from './components/Tools';
 import Contact from './components/Contact';
 import Background from './components/Background';
@@ -67,6 +68,7 @@ function App() {
           <Stats />
           <WorkProcess />
           <Projects />
+          <Research />
           <Experience />
           <Tools />
           <Contact />

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Card3D from './Card3D';
 import styles from './Experience.module.css';
+import { TextShimmer } from './core/text-shimmer';
 
 const items = [
   {
@@ -123,7 +124,9 @@ const Experience = () => {
       <div className={styles.stickyContainer}>
         <div className="container" style={{ paddingBottom: '40px' }}>
           <div className={styles.header}>
-            <h2>Experience & Certifications</h2>
+            <h2>
+              <TextShimmer duration={2}>Experience & Certifications</TextShimmer>
+            </h2>
             <p>My professional journey mapped out.</p>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Mail, Phone, ArrowRight } from 'lucide-react';
 import { FaLinkedin } from 'react-icons/fa';
 import styles from './Contact.module.css';
+import { TextShimmer } from './core/text-shimmer';
 
 const Contact = () => {
   return (
@@ -10,7 +11,9 @@ const Contact = () => {
         <div className={styles.contactWrapper}>
 
           <div className={styles.leftCol}>
-            <h2>Let's build<br /> something great.</h2>
+            <h2>
+              <TextShimmer duration={2}>Let's build<br /> something great.</TextShimmer>
+            </h2>
             <p>I'm always open to discussing AI, Machine Learning, autonomous systems, and new opportunities.</p>
 
             <div className={styles.contactInfo}>

@@ -25,6 +25,7 @@ const Navbar = () => {
           </div>
           <div className={styles.navLinks}>
             <a href="#projects">Projects</a>
+            <a href="#research">Research</a>
             <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
           </div>
@@ -43,6 +44,7 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
             >
               <a href="#projects" onClick={toggleMenu}>Projects</a>
+              <a href="#research" onClick={toggleMenu}>Research</a>
               <a href="#experience" onClick={toggleMenu}>Experience</a>
               <a href="#contact" onClick={toggleMenu}>Contact</a>
             </motion.div>

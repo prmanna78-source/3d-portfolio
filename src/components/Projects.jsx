@@ -3,6 +3,7 @@ import { useScroll, useTransform, motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, X } from 'lucide-react';
 import Card3D from './Card3D';
 import styles from './Projects.module.css';
+import { TextShimmer } from './core/text-shimmer';
 
 const projects = [
   {
@@ -100,7 +101,9 @@ const Projects = () => {
     <section className={styles.projectsSection} id="projects" ref={containerRef}>
       <div className="container">
         <div className={styles.header}>
-          <h2>Selected Works</h2>
+          <h2>
+            <TextShimmer duration={2}>Selected Works</TextShimmer>
+          </h2>
           <p>A showcase of my projects in AI, ML, and Autonomous Systems.</p>
         </div>
 

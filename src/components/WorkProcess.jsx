@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaProjectDiagram, FaServer, FaCogs, FaRocket } from 'react-icons/fa';
 import Card3D from './Card3D';
 import styles from './WorkProcess.module.css';
+import { TextShimmer } from './core/text-shimmer';
 
 const processes = [
   {
@@ -77,7 +78,9 @@ const WorkProcess = () => {
     <section className={styles.processSection} id="process" ref={containerRef}>
       <div className="container">
         <div className={styles.header}>
-          <h2>Work Process</h2>
+          <h2>
+            <TextShimmer duration={2}>Work Process</TextShimmer>
+          </h2>
           <p>A glimpse into my collaborative and iterative engineering process.</p>
         </div>
 

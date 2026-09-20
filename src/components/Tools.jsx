@@ -6,6 +6,7 @@ import { VscAzure } from 'react-icons/vsc';
 import { MatlabIcon, GazeboIcon } from './BrandIcons';
 import Card3D from './Card3D';
 import styles from './Tools.module.css';
+import { TextShimmer } from './core/text-shimmer';
 
 const toolsList = [
   {
@@ -80,7 +81,7 @@ const Tools = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Mastered Tools
+            <TextShimmer duration={2}>Mastered Tools</TextShimmer>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -101,13 +102,19 @@ const Tools = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
             >
-              <Card3D className={styles.toolPill}>
-                <div className={styles.pillTop}>
-                  {tool.icon}
-                </div>
-                <div className={styles.pillBottom}>
-                  <h3>{tool.name}</h3>
-                  <p>{tool.category}</p>
+              <Card3D 
+                className={styles.toolPillWrapper}
+                whileHover={{ scale: 1.1, y: -10 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <div className={styles.toolPillInner}>
+                  <div className={styles.pillTop}>
+                    {tool.icon}
+                  </div>
+                  <div className={styles.pillBottom}>
+                    <h3>{tool.name}</h3>
+                    <p>{tool.category}</p>
+                  </div>
                 </div>
               </Card3D>
             </motion.div>
