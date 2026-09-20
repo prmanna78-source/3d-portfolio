@@ -79,14 +79,34 @@
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    top: 14px;
+    padding: 0 16px;
+  }
+  .navInner {
+    padding: 8px 18px;
+  }
   .navLinks {
     display: none;
   }
   .menuBtn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
     background: transparent;
     border: none;
     cursor: pointer;
+  }
+  .mobileMenu {
+    padding: 14px 20px;
+    gap: 8px;
+    border-radius: 20px;
+  }
+  .mobileMenu a {
+    font-size: 1rem;
+    padding: 10px 0;
   }
 }
 

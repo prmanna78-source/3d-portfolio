@@ -6,7 +6,8 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding-top: 140px; /* Increased to ensure gap below navbar */
+  padding-top: 130px;
+  padding-bottom: 40px;
 }
 
 .container {
@@ -16,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 16px;
 }
 
 .centerContent {
@@ -28,8 +30,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1000px;
-  height: 1000px;
+  width: min(900px, 95vw);
+  height: min(900px, 95vw);
   z-index: 2;
   pointer-events: none;
 }
@@ -71,7 +73,7 @@
   font-family: 'VT323', monospace;
   font-size: 15rem;
   line-height: 1;
-  color: #1a1a1a; /* Dark pixelated look matching the image */
+  color: #1a1a1a;
   letter-spacing: -0.02em;
   will-change: transform;
 }
@@ -96,7 +98,22 @@
 }
 
 @media (max-width: 768px) {
+  .heroSection {
+    padding-top: 100px;
+    padding-bottom: 20px;
+    min-height: auto;
+  }
   .marqueeTrack {
     font-size: 6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding-top: 85px;
+    padding-bottom: 20px;
+  }
+  .marqueeTrack {
+    font-size: 4.2rem;
   }
 }
